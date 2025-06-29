@@ -34,6 +34,8 @@ class TextEditor {
   }
 }
 
+module.exports = TextEditor;
+
 // Example Usage:
 // const editor = new TextEditor();
 // editor.type('a');
