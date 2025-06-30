@@ -1,17 +1,26 @@
 function isValid(s) {
   const stack = [];
   const map = {
-    ')': '(',
-    ']': '[',
-    '}': '{',
+    ")": "(",
+    "]": "[",
+    "}": "{",
   };
 
   for (let char of s) {
-    // TODO: If opening bracket, push to stack
-    // TODO: If closing bracket, check top of stack
+    if (!map[char]) {
+      stack.push(char);
+    } else {
+      const lastItem = stack.pop();
+      if (map[char]) {
+        if (map[char] != lastItem) {
+          return false;
+        }
+      }
+    }
   }
 
-  // TODO: Return true if stack is empty (all matched)
-  return false;
+  if(stack.length > 0) return false
+  return true;
 }
+
 module.exports = { isValid };
